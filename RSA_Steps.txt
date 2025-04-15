@@ -1,0 +1,35 @@
+1.  Generate two prime numbers p and q.  (E.g. p = 11, q = 13)
+
+2.  Store their product in n(PUBLIC) 
+        n = p*q     (n = 143)
+
+3.  Calculate Euler's Totient Function: Φ(n)
+    Φ() just tells us how many numbers smaller then n that are co-prime to n.
+        Φ(n) = (p-1)*(q-1)  (Φ(n) = 120)
+
+4.  Calculate public key e(PUBLIC):
+        2<e<Φ(n) and gcd(e,Φ(n)) = 1, 
+        i.e. e and Φ(n) are coprime numbers.
+        (E.g. e = 7)
+
+5.  Calculate private key d(PRIVATE):
+        (e*d)%Φ(n) = 1
+        (E.g. d = 103)
+
+6.  Encryption of message m :
+        c = (m^e)%n , c will be sent instead of m
+        (E.g. Suppose message is 15, c = (15^7)%143 = 115)
+
+7.  Decryption of received c:
+        m = (c^d)%n
+        (E.g. m = (115^103)%143 = 15)
+
+
+If sender wants to send only signature, than:
+1. Encryption of signature: 
+        s = (m^d)%n
+        (E.g. s = (15^103)%143 = 141)
+
+2. Decryption of signature:
+        m = (s^e)%n
+        (E.g. m = (141^7)%143 = 15)

@@ -3,7 +3,8 @@ import time
 
 sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) # By default it will use IPV4 and TCP for connection
 
-sock.bind(('10.1.3.250',9999)) # Binds the socket with a port number(0-65535), localhost is the IP address of current machine, so we passed a tuple of IP address and port number in bind() method
+sock.bind(('192.168.43.134',9999))
+# sock.bind(('10.1.3.250',9999)) # Binds the socket with a port number(0-65535), localhost is the IP address of current machine, so we passed a tuple of IP address and port number in bind() method
 # Type ipconfig on cmd to check your machine's ip address
 
 sock.listen(5)
